@@ -76,9 +76,18 @@
   // height 高       window.innerHeight
   // updateStyle ?  ?
   renderer.setSize(window.innerWidth, window.innerHeight);
-  // 4.3、将WebGL渲染的canvas内容添加到body
+  // 4.3、设置渲染器像素比 http://localhost:8080/docs/#api/zh/renderers/WebGLRenderer.setPixelRatio
+  // 构造函数
+  // 参数名  中文名   推荐值
+  // value  像素比   window.devicePixelRatio
+  renderer.setPixelRatio(window.devicePixelRatio);
+  // 4.4、将WebGL渲染的canvas内容添加到body
   document.body.append(renderer.domElement);
-  // 4.4、使用渲染器，通过相机讲场景渲染出来
+  // 4.5、使用渲染器，通过相机讲场景渲染出来
+  // 构造函数
+  // 参数名  中文名
+  // scene  场景
+  // camera 相机
   // 注：在5.2中每一帧刷新
   // renderer.render(scene, camera);
 
