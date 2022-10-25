@@ -33,7 +33,7 @@ rgbeLoader.loadAsync("./textures/hdr/field.hdr").then((texture) => {
   scene.environment = texture;
 });
 // 创建一个球
-const sphereGeometry = new THREE.SphereBufferGeometry(1, 20, 20);
+const sphereGeometry = new THREE.SphereGeometry(1, 20, 20);
 const sphereMaterial = new THREE.MeshStandardMaterial({
   // 金属度
   metalness: 0.7,

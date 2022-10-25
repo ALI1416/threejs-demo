@@ -11,6 +11,9 @@ body {
 /* 0、安装并导入依赖 */
 import * as THREE from 'three';
 import {OrbitControls} from "three/examples/jsm/controls/OrbitControls.js"
+import * as dat from "dat.gui"
+
+const gui = new dat.GUI();
 
 /* 1、创建场景 */
 const scene = new THREE.Scene();
@@ -29,7 +32,7 @@ const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
 sphere.castShadow = true;
 scene.add(sphere);
 // 平面
-const planeGeometry = new THREE.PlaneBufferGeometry(10, 10);
+const planeGeometry = new THREE.PlaneGeometry(10, 10);
 const planeMaterial = new THREE.MeshStandardMaterial();
 const plane = new THREE.Mesh(planeGeometry, planeMaterial);
 plane.position.set(0, -1, 0);
@@ -42,7 +45,7 @@ scene.add(plane);
 const light = new THREE.AmbientLight(0xffffff, 0.2);
 scene.add(light);
 const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-directionalLight.position.set(10, 10, 10);
+directionalLight.position.set(5, 5, 5);
 // 2、光照投射阴影 http://localhost:8080/docs/#api/zh/lights/DirectionalLight.castShadow
 directionalLight.castShadow = true;
 // 阴影贴图设置
@@ -51,14 +54,19 @@ directionalLight.shadow.radius = 20;
 // 贴图分辨率 http://localhost:8080/docs/#api/zh/lights/shadows/LightShadow.mapSize
 directionalLight.shadow.mapSize.set(4096, 4096);
 // 平行光投射相机属性(近远上下左右)[节省计算量] http://localhost:8080/docs/#api/zh/lights/shadows/LightShadow.camera
-directionalLight.shadow.camera.near = 9.5;
+directionalLight.shadow.camera.near = 9;
 directionalLight.shadow.camera.far = 500;
 directionalLight.shadow.camera.top = 5;
 directionalLight.shadow.camera.bottom = -5;
 directionalLight.shadow.camera.left = -5;
 directionalLight.shadow.camera.right = 5;
-directionalLight.shadow.camera.updateProjectionMatrix();
 scene.add(directionalLight);
+
+// 调节相机近端
+gui.add(directionalLight.shadow.camera, "near").min(9).max(10).step(0.01).name("近端").onChange(() => {
+  // 调节后要更新相机矩阵
+  directionalLight.shadow.camera.updateProjectionMatrix();
+})
 
 /* 4、创建渲染器 */
 const renderer = new THREE.WebGLRenderer();

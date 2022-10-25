@@ -39,7 +39,7 @@ scene.background = streetEnvMap;
 // 设置场景中所有物体的默认环境贴图 http://localhost:8080/docs/?q=sc#api/zh/scenes/Scene.environment
 // scene.environment = streetEnvMap;
 // 创建一个球
-const sphereGeometry = new THREE.SphereBufferGeometry(1, 20, 20);
+const sphereGeometry = new THREE.SphereGeometry(1, 20, 20);
 const sphereMaterial = new THREE.MeshStandardMaterial({
   // 金属度
   metalness: 0.7,

@@ -48,7 +48,7 @@ scene.add(cube2);
 
 /* 第三个物体 */
 // 创建一个平面
-const planeGeometry = new THREE.PlaneBufferGeometry(1, 1);
+const planeGeometry = new THREE.PlaneGeometry(1, 1);
 const planeMaterial = new THREE.MeshBasicMaterial({
   map: doorColorTexture,
   // 透明度(0-1) http://localhost:8080/docs/#api/zh/materials/Material.opacity

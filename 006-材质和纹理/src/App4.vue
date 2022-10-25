@@ -89,7 +89,7 @@ scene.add(cube);
 
 /* 第二个物体 */
 // 蓝色轴穿过面的右上角和左下角时，缩放，可以看到光源
-const planeGeometry = new THREE.PlaneBufferGeometry(1, 1, 100, 100);
+const planeGeometry = new THREE.PlaneGeometry(1, 1, 100, 100);
 const planeMaterial = new THREE.MeshStandardMaterial({
   map: doorColorTexture,
   roughness: 0.1,
