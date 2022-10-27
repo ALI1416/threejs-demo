@@ -84,12 +84,6 @@ spotLightFolder.add(spotLight, "angle").min(0).max(Math.PI / 2).step(0.01).name(
 spotLightFolder.add(spotLight, "distance").min(0).max(100).step(0.1).name("距离衰减");
 // 光锥衰减 http://localhost:8080/docs/#api/zh/lights/SpotLight.penumbra
 spotLightFolder.add(spotLight, "penumbra").min(0).max(1).step(0.001).name("光锥衰减");
-// 正确光照模式 http://localhost:8080/docs/#api/zh/renderers/WebGLRenderer.physicallyCorrectLights
-spotLightFolder.add(params, "physicallyCorrectLights").name("正确光照模式").onChange((v) => {
-  renderer.physicallyCorrectLights = v;
-})
-// 正确距离衰减 http://localhost:8080/docs/#api/zh/lights/SpotLight.decay
-spotLightFolder.add(spotLight, "decay").min(0).max(5).step(0.01).name("正确距离衰减");
 
 /* 4、创建渲染器 */
 const renderer = new THREE.WebGLRenderer();
@@ -97,6 +91,15 @@ renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.shadowMap.enabled = true;
 document.body.append(renderer.domElement);
+const correctFolder = gui.addFolder("正确光照模式");
+correctFolder.open();
+// 正确光照模式 http://localhost:8080/docs/#api/zh/renderers/WebGLRenderer.physicallyCorrectLights
+correctFolder.add(renderer, "physicallyCorrectLights").name("正确光照模式");
+// 正确距离衰减 http://localhost:8080/docs/#api/zh/lights/SpotLight.decay
+// 距离衰减大于0时才有效
+correctFolder.add(spotLight, "decay").min(0).max(5).step(0.01).name("正确距离衰减");
+// 光功率 http://localhost:8080/docs/#api/zh/lights/SpotLight.power
+correctFolder.add(spotLight, "power").min(0).max(spotLight.intensity * Math.PI * 10).step(0.01).name("光功率");
 
 /* 5、创建控制器 */
 const controls = new OrbitControls(camera, renderer.domElement);
