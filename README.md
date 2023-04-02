@@ -5,7 +5,7 @@
 
 ## 简介
 
-threejs官网：<https://threejs.org/>
+- threejs官网：<https://threejs.org/>
 
 ## 下载并运行官方文档
 
@@ -24,9 +24,10 @@ threejs官网：<https://threejs.org/>
 
 ## 交流
 
-QQ：1416978277  
-微信：1416978277  
-支付宝：1416978277@qq.com  
+- [x] QQ：`1416978277`
+- [x] 微信：`1416978277`
+- [x] 支付宝：`1416978277@qq.com`
+
 ![交流](https://cdn.jsdelivr.net/gh/ALI1416/ALI1416/image/contact.png)
 
 ## 赞助
