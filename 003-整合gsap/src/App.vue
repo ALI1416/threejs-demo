@@ -10,7 +10,7 @@ body {
 <script>
 /* 0、安装并导入依赖 */
 import * as THREE from 'three'
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js'
+import {OrbitControls} from 'three/addons'
 // 安装 npm install gsap
 // 导入gsap
 import gsap from 'gsap'

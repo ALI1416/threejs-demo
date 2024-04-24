@@ -10,7 +10,7 @@ body {
 <script>
 /* 0、安装并导入依赖 */
 import * as THREE from 'three'
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js'
+import {OrbitControls} from 'three/addons'
 // 导入RGBELoader依赖
 import {RGBELoader} from 'three/examples/jsm/loaders/RGBELoader.js'
 

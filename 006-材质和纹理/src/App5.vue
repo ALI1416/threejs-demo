@@ -10,7 +10,7 @@ body {
 <script>
 /* 0、安装并导入依赖 */
 import * as THREE from 'three'
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js'
+import {OrbitControls} from 'three/addons'
 
 /* 1、创建场景 */
 const scene = new THREE.Scene()

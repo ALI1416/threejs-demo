@@ -10,7 +10,7 @@ body {
 <script>
 /* 0、安装并导入依赖 */
 import * as THREE from 'three'
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js'
+import {OrbitControls} from 'three/addons'
 import GUI from 'lil-gui'
 
 const gui = new GUI()

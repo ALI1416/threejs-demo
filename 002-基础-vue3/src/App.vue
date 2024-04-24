@@ -14,7 +14,7 @@ body {
 // 导入整个three.js核心库
 import * as THREE from 'three'
 // 5.0、导入轨道控制器依赖
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js'
+import {OrbitControls} from 'three/addons'
 
 /* 1、创建场景 */
 const scene = new THREE.Scene()

@@ -10,10 +10,12 @@ body {
 <script>
 /* 0、安装并导入依赖 */
 import * as THREE from 'three'
-import {OrbitControls} from 'three/addons/controls/OrbitControls.js'
-// 安装 npm install lil-gui
-// 导入lil-gui
+import {OrbitControls} from 'three/addons'
+// 引用官方库 npm install lil-gui
+// 文档 https://lil-gui.georgealways.com/
 import GUI from 'lil-gui'
+// 也可以导入three.js提供的库
+// import GUI from 'three/addons/libs/lil-gui.module.min.js'
 
 /* 1、创建场景 */
 const scene = new THREE.Scene()
@@ -43,14 +45,12 @@ const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
 /* 7、lil-gui动画 */
-// 文档 https://lil-gui.georgealways.com/
 const gui = new GUI()
 // GUI方法 https://lil-gui.georgealways.com/#GUI
 // 方法名  中文名
 // title  设置标题名
 // add    添加控制器
 gui.title('控制')
-
 // 控制器方法 https://lil-gui.georgealways.com/#Controller
 // 方法名  中文名
 // name     设置名称
