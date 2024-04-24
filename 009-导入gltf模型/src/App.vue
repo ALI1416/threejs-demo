@@ -10,10 +10,7 @@ body {
 <script>
 /* 0、安装并导入依赖 */
 import * as THREE from 'three'
-import {MTLLoader, OBJLoader, OrbitControls} from 'three/addons'
-// 导入three.js提供的库
-// 也可以引用官方库 npm install stats.js
-// 官网 https://github.com/mrdoob/stats.js
+import {GLTFLoader, OrbitControls} from 'three/addons'
 import Stats from 'three/addons/libs/stats.module.js'
 
 const stats = new Stats()
@@ -28,33 +25,18 @@ camera.position.set(0, 0, 10)
 scene.add(camera)
 
 /* 3、导入模型 */
-// 本模型 https://3dwarehouse.sketchup.com/model/429ed2c114d5241d465e08d496c0420f/tree
-const loader = new OBJLoader()
-const mtlLoader = new MTLLoader()
-mtlLoader.load('obj/tree.mtl',
-    function (mtl) {
-      console.log(mtl)
-      mtl.preload()
-      loader.setMaterials(mtl)
-      loader.load(
-          'obj/tree.obj',
-          function (obj) {
-            console.log(obj)
-            scene.add(obj)
-          },
-          function (e) {
-            console.log('模型已加载' + (e.loaded / e.total * 100) + '%')
-          },
-          function (e) {
-            console.log('模型加载错误', e)
-          }
-      )
+const loader = new GLTFLoader()
+loader.load(
+    'gltf/tree.glb',
+    function (gltf) {
+      console.log(gltf)
+      scene.add(gltf.scene)
     },
     function (e) {
-      console.log('纹理已加载' + (e.loaded / e.total * 100) + '%')
+      console.log('模型已加载' + (e.loaded / e.total * 100) + '%')
     },
     function (e) {
-      console.log('纹理加载错误', e)
+      console.log('模型加载错误', e)
     }
 )
 
