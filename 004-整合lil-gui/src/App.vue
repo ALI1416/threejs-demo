@@ -44,7 +44,7 @@ const controls = new OrbitControls(camera, renderer.domElement)
 const axesHelper = new THREE.AxesHelper(5)
 scene.add(axesHelper)
 
-/* 7、lil-gui动画 */
+/* 7、lil-gui控制器 */
 const gui = new GUI()
 // GUI方法 https://lil-gui.georgealways.com/#GUI
 // 方法名  中文名
